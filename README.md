@@ -30,4 +30,38 @@ Next, do **sudo systemctl show-environment** and ensure you see **LANG=en_US.UTF
 `LANG=en_US.UTF-8`<br />
 `PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin`<br />
 If you don’t see this, do sudo systemctl set-environment LANG=en_US.UTF-8 and run the above sudo systemctl show-environment again
-and confirm you see LANG=en_US.UTF-8 in the output.<br />
+and confirm you see LANG=en_US.UTF-8 in the output.<br /><br />
+Next, check that your server has (at lest) 16G of memory using the command free -h. Here’s the output from one of
+our test servers.<br />
+`$ free -h`<br /><br />
+Next, check that the server has Ubuntu is 18.04 as its operating system.<br />
+`$ cat /etc/lsb-release`<br />
+`DISTRIB_ID=Ubuntu`<br />
+`DISTRIB_RELEASE=18.04`<br />
+`DISTRIB_CODENAME=bionic`<br />
+`DISTRIB_DESCRIPTION="Ubuntu 18.04.5 LTS"`<br /><br />
+Next, check that your server is running the 64-bit version of Ubuntu 18.04.<br />
+`$ uname -m`<br />
+`x86_64`<br /><br />
+Next, check that your server supports IPV6.<br />
+`$ ip addr | grep inet6`<br />
+`inet6 ::1/128 scope host`<br />
+`inet6 fe80::f816:3eff:fe20:f0d8/64 scope link`<br />
+`inet6 fe80::42:edff:fec9:62f5/64 scope link`<br />
+`inet6 fe80::42:cfff:feb4:c517/64 scope link`<br />
+`inet6 fe80::46a:70ff:fef0:6ac6/64 scope link`<br />
+`inet6 fe80::c4de:f2ff:fed5:651e/64 scope link`<br />
+If you do not see the line inet6 ::1/128 scope host then after you install BigBlueButton you will need to modify the configuration for FreeSWITCH to
+disable support for IPV6.<br /><br />
+Next, check that your server is running Linux kernel 4.x.<br />
+`$ uname -r`<br />
+`4.15.0-147-generic`<br />
+Note: BigBlueButton will not run on a 2.6 Kernel (such as Linux 2.6.32-042stab133.2 on x86_64 on OpenVZ VPS).<br /><br />
+Next, check that your server has (at least) 8 CPU cores<br />
+`$ cat /proc/cpuinfo | awk '/^processor/{print $3}' | wc -l`<br />
+`Output >> 2`<br /><br />
+
+
+
+
+
