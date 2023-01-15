@@ -186,6 +186,6 @@ bbb-web ——————————————— [ - active]
 Also you can restart your server with this command :<br />
 `$ sudo bbb-conf --restart`
 after that we must config the DNS  , for this reason we must enter this command , 
-sudo apt
+sudo apt-
 
 
