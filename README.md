@@ -188,5 +188,54 @@ Also you can restart your server with this command :<br />
 after that we must config the DNS  , for this reason we must enter this command , 
 sudo apt-g<br />
 After This steps
+PLZ CHECK
+
+function myfunc(){
+		var name=document.getElementById("name").value;
+		var address=document.getElementById("addr").value;
+		var zip=document.getElementById("zip").value;
+		var day=document.getElementById("day").value;
+		var month=document.getElementById("month").value;
+		var year=document.getElementById("year").value;
+		var pass1=document.getElementById("pass1").value;
+		var pass2=document.getElementById("pass2").value;
+		var country=document.getElementById("country").value;
+		var g1=document.getElementById("g1").checked;
+		var g2=document.getElementById("g2").checked;
+		var c1=document.getElementById("c1").checked;
+		var c2=document.getElementById("c2").checked;
+		var c3=document.getElementById("c3").checked;
+		
+		if 	(name==="" || address==="" || zip==="" || day==="" || month==="" || year==="" || pass1==="" || pass2==="" || 
+			country==="" || (g1===false && g2===false) || (c1===false && c2===false && c3===false))
+				{
+				alert(" You MUST fill all fields!");
+				return;
+				}
+				
+		if	(name.match(/[^a-z\s]/gi)!==null)
+			{
+				alert(" NAME must use alphabet!");
+				return;
+			}
+			
+		if	(day.match(/[1-31]/g)===null)
+			{
+				alert("Please enter between 1 and 31");
+				return;
+			}
+		
+		if	(month.match(/[1-12]/g)===null)
+			{
+				alert("Please enter between 1 and 12");
+				return;
+			}
+		
+		if	(year.match(/^(200\d|201\d|202\d|2030)$/)===null)
+			{
+				alert("Please enter between 2000 and 2023");
+				return;
+			}
+	}
 
 
